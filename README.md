@@ -108,7 +108,7 @@ const store = bootstrap({/* ... */});
 if (module.hot) {
     module.hot.accept("../reducers", () => {
         const nextRootReducer = require("../reducers/index");
-        store.replaceReducer(nextRootReducer);
+        store.replaceReducer(nextRootReducer).default; // Remove .default if you use Babel 5
     });
 }
 ```
