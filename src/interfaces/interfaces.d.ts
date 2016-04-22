@@ -10,9 +10,9 @@ interface BoostrapOptions {
 }
 
 interface BootstrapResult {
-    store: Redux.Store,
-    history: ReactRouterRedux.ReactRouterReduxHistory,
-    root: JSX.Element
+    store: Redux.Store;
+    history: ReactRouterRedux.ReactRouterReduxHistory;
+    root: JSX.Element;
 }
 
 interface ReducersOption {
