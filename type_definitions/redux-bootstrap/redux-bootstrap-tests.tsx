@@ -6,7 +6,7 @@ import bootstrap from "redux-bootstrap";
 
 let routes: JSX.Element = null;
 
-bootstrap({
+let result = bootstrap({
     container: "root",
     initialState: {},
     middlewares: [],
@@ -16,3 +16,7 @@ bootstrap({
     },
     routes: routes
 });
+
+console.log(result.store);
+console.log(result.history);
+console.log(result.root);

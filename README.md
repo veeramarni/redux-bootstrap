@@ -99,19 +99,28 @@ Redux bootstrap uses Immutable.js. The `combineReducers` function from redux don
 import { combineReducers } from "redux-immutable";
 ```
 
-# Accessing The Store
-Sometimes you need to access the store. For example when enabling hot loader:
+# Accessing The Store, synched history or Root component
+Sometimes you need to access the store, synched history or root component. For example when enabling hot loader:
 
 ```ts
-const store = bootstrap({/* ... */});
+const result = bootstrap({/* ... */});
 
 if (module.hot) {
     module.hot.accept("../reducers", () => {
         const nextRootReducer = require("../reducers/index").default;
         // If you use module.exports or Babel 5, remove .default:
         // const nextRootReducer = require("../reducers/index");
-        store.replaceReducer(nextRootReducer);
+        result.store.replaceReducer(nextRootReducer);
     });
+}
+```
+The `result` object returned by the bootstrap function provides access to the store, synched history or root component.
+
+```
+interface BootstrapResult {
+    store: Redux.Store,
+    history: ReactRouterRedux.ReactRouterReduxHistory,
+    root: JSX.Element
 }
 ```
 
