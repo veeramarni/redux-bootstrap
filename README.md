@@ -99,7 +99,7 @@ Redux bootstrap uses Immutable.js. The `combineReducers` function from redux don
 import { combineReducers } from "redux-immutable";
 ```
 
-# Accessing The Store, synched history or Root component
+# Accessing The Store, History & Root Component
 Sometimes you need to access the store, synched history or root component. For example when enabling hot loader:
 
 ```ts
