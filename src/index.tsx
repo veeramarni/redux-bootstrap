@@ -22,7 +22,7 @@ let routerReducer = (state = initialRouterReducerState, action: any) => {
     return state;
 };
 
-function bootstrap(options: BoostrapOptions): Redux.Store {
+function bootstrap(options: BoostrapOptions): BootstrapResult {
 
     // Validate options and set defaults
     if (options === undefined) { throw new TypeError("Null argument options."); };
@@ -52,13 +52,20 @@ function bootstrap(options: BoostrapOptions): Redux.Store {
         selectLocationState: (state: any) => state.get("routing").toJS()
     });
 
+    // root component
+    let root = getRoot(store, history, routes);
+
     // Render Root coponent
     render(
-        getRoot(store, history, routes),
+        root,
         document.getElementById(container)
     );
 
-    return store;
+    return {
+        store,
+        history,
+        root
+    };
 
 }
 
