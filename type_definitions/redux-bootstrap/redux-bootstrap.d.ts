@@ -15,10 +15,16 @@ declare module "redux-immutable" {
         initialState?: any;
         container?: string;
     }
+    
+    interface BootstrapResult {
+        store: Redux.Store,
+        history: ReactRouterRedux.ReactRouterReduxHistory,
+        root: JSX.Element
+    }
 
     interface ReducersOption {
         [index: string]: Redux.Reducer;
     }
 
-    export function bootstrap(options: BoostrapOptions): void;
+    export function bootstrap(options: BoostrapOptions): BootstrapResult;
 }
