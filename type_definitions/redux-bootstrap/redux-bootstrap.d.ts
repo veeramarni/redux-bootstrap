@@ -15,7 +15,7 @@ declare module "redux-immutable" {
         initialState?: any;
         container?: string;
     }
-    
+
     interface BootstrapResult {
         store: Redux.Store;
         history: ReactRouterRedux.ReactRouterReduxHistory;
