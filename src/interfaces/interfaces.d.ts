@@ -9,6 +9,12 @@ interface BoostrapOptions {
     container?: string;
 }
 
+interface BootstrapResult {
+    store: Redux.Store,
+    history: ReactRouterRedux.ReactRouterReduxHistory,
+    root: JSX.Element
+}
+
 interface ReducersOption {
     [index: string]: Redux.Reducer;
 }
