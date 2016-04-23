@@ -10,7 +10,7 @@
 [![NPM](https://nodei.co/npm/redux-bootstrap.png?downloads=true&downloadRank=true)](https://nodei.co/npm/redux-bootstrap/)
 [![NPM](https://nodei.co/npm-dl/redux-bootstrap.png?months=9&height=3)](https://nodei.co/npm/redux-bootstrap/)
 
-Bootstrapping function for Redux applications. Redux bootstrap does not generate files for you. 
+Bootstrapping function for [Redux](https://github.com/reactjs/redux) applications. Redux bootstrap does not generate files for you. 
 It is not a project template or project scaffolding tool and it is not related with Bootstrap (responsive web apps framework).
 
 ## Why Do I Need This?
