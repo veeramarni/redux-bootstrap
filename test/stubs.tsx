@@ -75,6 +75,9 @@ let addUserAsync =  () => {
 
 let userActions = { addUserAsync, addUserBegin, addUserSuccess };
 
+// ******************************************************************************
+// * USER PAGE COMPONENT
+// ******************************************************************************
 function mapStateToPropsUserPage(state: any) {
     return { users: state.get("users") };
 }
@@ -83,9 +86,6 @@ function mapDispatchToPropsUserPage(dispatch: Redux.Dispatch) {
     return { actions : bindActionCreators(userActions, dispatch) };
 }
 
-// ******************************************************************************
-// * USER PAGE COMPONENT
-// ******************************************************************************
 @connect(mapStateToPropsUserPage, mapDispatchToPropsUserPage)
 class UsersPage extends React.Component<any, any> {
     public render() {
@@ -120,6 +120,9 @@ let addRepoAsync =  () => {
 
 let repoActions = { addRepoAsync, addRepoBegin, addRepoSuccess };
 
+// ******************************************************************************
+// * REPOS PAGE COMPONENT
+// ******************************************************************************
 function mapStateToPropsReposPage(state: any) {
     return { repos: state.get("repos") };
 }
@@ -128,9 +131,6 @@ function mapDispatchToPropsReposPage(dispatch: Redux.Dispatch) {
     return { actions : bindActionCreators(repoActions, dispatch) };
 }
 
-// ******************************************************************************
-// * REPOS PAGE COMPONENT
-// ******************************************************************************
 @connect(mapStateToPropsReposPage, mapDispatchToPropsReposPage)
 class ReposPage extends React.Component<any, any> {
     public render() {
