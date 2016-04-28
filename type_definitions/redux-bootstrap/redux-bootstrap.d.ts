@@ -5,8 +5,9 @@
 
 /// <reference path="../redux/redux.d.ts" />
 /// <reference path="../react/react.d.ts" />
+/// <reference path="../react-router-redux/react-router-redux.d.ts" />
 
-declare module "redux-immutable" {
+declare module "redux-bootstrap" {
 
     interface BoostrapOptions {
         routes: JSX.Element;
