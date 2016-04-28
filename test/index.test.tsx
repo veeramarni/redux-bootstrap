@@ -1,5 +1,6 @@
 /// <reference path="../src/interfaces/interfaces.d.ts" />
 
+import { unmountComponentAtNode } from 'react-dom';
 import thunk from "redux-thunk";
 // import * as createLogger from "redux-logger";
 import * as $ from "jquery";
@@ -7,8 +8,10 @@ import { expect } from "chai";
 import bootstrap from "../src/index";
 import { getRoutes, getReducers } from "./stubs";
 
+const CONTAINER_ID = "root";
+
 history.pushState({}, "", "/");
-$("body").append(`<div id="root"/><div>`);
+$("body").append(`<div id="${CONTAINER_ID}"/><div>`);
 
 describe("redux-bootstrap", () => {
 
@@ -38,13 +41,23 @@ describe("redux-bootstrap", () => {
 
     describe("Should be able to bootstrap applications.", () => {
 
-        bootstrap({
-            container: "root",
-            initialState: {},
-            middlewares: [thunk],
-            reducers: getReducers(),
-            routes: getRoutes()
+        before(() => {
+            bootstrap({
+                container: "root",
+                initialState: {},
+                middlewares: [thunk],
+                reducers: getReducers(),
+                routes: getRoutes()
+            });
+
         });
+
+        after(() => {
+            // https://facebook.github.io/react/docs/top-level-api.html#reactdom.unmountcomponentatnode
+            const rootNode = document.getElementById(CONTAINER_ID);
+            unmountComponentAtNode(rootNode);
+        });
+
 
         it("Should be able to render the home page.", (done) => {
             setTimeout(() => {
@@ -104,6 +117,34 @@ describe("redux-bootstrap", () => {
 
             }, 30);
 
+        });
+
+    });
+
+    describe("Should be able to bootstrap again.", () => {
+
+        let result: BootstrapResult;
+        before(() => {
+            result = bootstrap({
+                container: "root",
+                initialState: {},
+                middlewares: [thunk],
+                reducers: getReducers(),
+                routes: getRoutes()
+            });
+        });
+
+
+        it("Should expose history, root, store in result.", () => {
+            expect(result).to.be.ok;
+            expect(result).to.have.property("history");
+            expect(result).to.have.property("root");
+            expect(result).to.have.property("store");
+        });
+
+        after(() => {
+            const rootNode = document.getElementById(CONTAINER_ID);
+            unmountComponentAtNode(rootNode);
         });
 
     });
