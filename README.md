@@ -1,4 +1,6 @@
 # redux-bootstrap
+
+[![Join the chat at https://gitter.im/remojansen/redux-bootstrap](https://badges.gitter.im/remojansen/redux-bootstrap.svg)](https://gitter.im/remojansen/redux-bootstrap?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 [![Build Status](https://travis-ci.org/remojansen/redux-bootstrap.svg?branch=master)](https://travis-ci.org/remojansen/redux-bootstrap)
 [![codecov.io](https://codecov.io/github/remojansen/redux-bootstrap/coverage.svg?branch=master)](https://codecov.io/github/remojansen/redux-bootstrap?branch=master)
 [![npm version](https://badge.fury.io/js/redux-bootstrap.svg)](https://badge.fury.io/js/redux-bootstrap)
