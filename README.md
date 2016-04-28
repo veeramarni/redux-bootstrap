@@ -92,7 +92,8 @@ bootstrap({
 
 That's it, Routing, Immutable, DevTools are ready and you can start working on your app! 
 
-Note. If you are looking for a sample application, you can refer to the [redux-bootstrap-example](https://github.com/remojansen/redux-bootstrap-example) repository.
+# Where Can I Find An Example?
+If you are looking for a sample application, you can refer to the [redux-bootstrap-example](https://github.com/remojansen/redux-bootstrap-example) repository.
 
 # Using combineReducers
 Redux bootstrap uses Immutable.js. The `combineReducers` function from redux don't work with immutable state but you can use the `redux-immutable` `combineReducers` function to solve this problem:
