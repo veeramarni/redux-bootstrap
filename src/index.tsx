@@ -56,7 +56,7 @@ function bootstrap(options: BoostrapOptions): BootstrapResult {
 
     // Create an enhanced history that syncs navigation events with the store
     const history = syncHistoryWithStore(routerHistory, store, {
-        selectLocationState: createSelector(getRouting, (routing) => routing.toJS())
+        selectLocationState: createSelector(getRouting, (routing: any) => routing.toJS())
     });
 
     // root component
