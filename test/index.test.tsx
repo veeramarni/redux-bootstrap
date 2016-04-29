@@ -3,10 +3,12 @@
 import { unmountComponentAtNode } from 'react-dom';
 import thunk from "redux-thunk";
 // import * as createLogger from "redux-logger";
+import { push } from "react-router-redux";
 import * as $ from "jquery";
 import { expect } from "chai";
+
 import bootstrap from "../src/index";
-import { getRoutes, getReducers } from "./stubs";
+import { ACTION_TYPES, getRoutes, getReducers } from "./stubs";
 
 const CONTAINER_ID = "root";
 
@@ -140,6 +142,68 @@ describe("redux-bootstrap", () => {
             expect(result).to.have.property("history");
             expect(result).to.have.property("root");
             expect(result).to.have.property("store");
+        });
+
+        after(() => {
+            const rootNode = document.getElementById(CONTAINER_ID);
+            unmountComponentAtNode(rootNode);
+        });
+
+    });
+
+    describe("Should bootstrap with efficient sync'ed history", () => {
+
+        const BUMP_COUNTER = "BUMP_COUNTER";
+
+        let history: ReactRouterRedux.ReactRouterReduxHistory;
+        let store: Redux.Store;
+
+        before(() => {
+            const result = bootstrap({
+                container: "root",
+                initialState: {},
+                middlewares: [thunk],
+                reducers: getReducers(),
+                routes: getRoutes()
+            });
+            history = result.history;
+            store = result.store;
+        });
+
+        let eventTimer: any;
+        let removeListener: Function;
+
+        afterEach(() => {
+            // clear our fallback timer between tests
+            if (eventTimer) {
+                clearTimeout(eventTimer);
+                eventTimer = null;
+            }
+            // unsubscribe our history listener between tests
+            if (removeListener) {
+                removeListener();
+            }
+        });
+
+        it("Should not call history listener for each 'counter' action (3x)", (done) => {
+            eventTimer = setTimeout(() => done(), 200);
+            let historyListenerCalled = 0;
+            removeListener = history.listen(() => {
+                historyListenerCalled += 1;
+                if (historyListenerCalled >= 3) {
+                    // without the fix...
+                    done(new Error("unexpected call"));
+                }
+            });
+            store.dispatch({ type: ACTION_TYPES.BUMP_COUNTER });
+            store.dispatch({ type: ACTION_TYPES.BUMP_COUNTER });
+            store.dispatch({ type: ACTION_TYPES.BUMP_COUNTER });
+        });
+
+        it("Should call history listener after 'routing' changed", (done) => {
+            eventTimer = setTimeout(() => done(new Error("timeout")), 200);
+            removeListener = history.listen(() => done());
+            store.dispatch(push("/"));
         });
 
         after(() => {
