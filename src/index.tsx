@@ -2,7 +2,7 @@
 
 import * as React from "react";
 import { render } from "react-dom";
-import createBrowserHistory from "history/lib/createBrowserHistory";
+import { createHistory as createBrowserHistory } from "history";
 import { useRouterHistory } from "react-router";
 import { LOCATION_CHANGE, syncHistoryWithStore, routerMiddleware } from "react-router-redux";
 import { combineReducers } from "redux-immutable";
