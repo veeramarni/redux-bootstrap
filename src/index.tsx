@@ -2,7 +2,8 @@
 
 import * as React from "react";
 import { render } from "react-dom";
-import { browserHistory } from "react-router";
+import { createHistory as createBrowserHistory } from "history";
+import { useRouterHistory } from "react-router";
 import { LOCATION_CHANGE, syncHistoryWithStore, routerMiddleware } from "react-router-redux";
 import { combineReducers } from "redux-immutable";
 import { createSelector } from "reselect";
@@ -38,6 +39,8 @@ function bootstrap(options: BoostrapOptions): BootstrapResult {
 
     // optional
     let container = options.container || "root";
+    const createHistory = options.createHistory || createBrowserHistory;
+    const historyOptions = options.historyOptions || {};
     let initialState = options.initialState || {};
     let immutableInitialState = Immutable.fromJS(initialState);
     let middlewares = options.middlewares || [];
@@ -47,11 +50,12 @@ function bootstrap(options: BoostrapOptions): BootstrapResult {
     let rootReducer = combineReducers(reducers);
 
     // Configure store
-    let routerMddlwr: Redux.Middleware = routerMiddleware(browserHistory);
+    const routerHistory = useRouterHistory(createHistory)(historyOptions);
+    let routerMddlwr: Redux.Middleware = routerMiddleware(routerHistory);
     const store = configureStore([...middlewares, routerMddlwr], rootReducer, immutableInitialState);
 
     // Create an enhanced history that syncs navigation events with the store
-    const history = syncHistoryWithStore(browserHistory, store, {
+    const history = syncHistoryWithStore(routerHistory, store, {
         selectLocationState: createSelector(getRouting, (routing) => routing.toJS())
     });
 

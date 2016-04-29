@@ -4,6 +4,8 @@
 interface BoostrapOptions {
     routes: JSX.Element;
     reducers: ReducersOption;
+    createHistory?: HistoryModule.CreateHistory<HistoryModule.History>;
+    historyOptions?: HistoryModule.HistoryOptions;
     middlewares?: Redux.Middleware[];
     initialState?: any;
     container?: string;

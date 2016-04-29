@@ -1,5 +1,6 @@
 /// <reference path="../src/interfaces/interfaces.d.ts" />
 
+import { createHashHistory } from "history";
 import { unmountComponentAtNode } from 'react-dom';
 import thunk from "redux-thunk";
 // import * as createLogger from "redux-logger";
@@ -58,6 +59,7 @@ describe("redux-bootstrap", () => {
             // https://facebook.github.io/react/docs/top-level-api.html#reactdom.unmountcomponentatnode
             const rootNode = document.getElementById(CONTAINER_ID);
             unmountComponentAtNode(rootNode);
+            rootNode.innerHTML = "";
         });
 
 
@@ -147,6 +149,45 @@ describe("redux-bootstrap", () => {
         after(() => {
             const rootNode = document.getElementById(CONTAINER_ID);
             unmountComponentAtNode(rootNode);
+            rootNode.innerHTML = "";
+       });
+
+    });
+
+    describe("Should be able to bootstrap with hashHistory.", () => {
+
+        let result: BootstrapResult;
+        before(() => {
+            result = bootstrap({
+                container: "root",
+                initialState: {},
+                createHistory: createHashHistory,
+                middlewares: [thunk],
+                reducers: getReducers(),
+                routes: getRoutes()
+            });
+        });
+
+        it("Should be able to render the home page.", (done) => {
+            setTimeout(() => {
+                expect($("#home_page_title").text()).eql("Home Page!");
+                done();
+            }, 20);
+        });
+
+        it("Should be able to navigate to a page.", (done) => {
+            let usersLink = document.getElementById("link_to_users");
+            usersLink.click();
+            setTimeout(() => {
+                expect($("#users_page_title").text()).eql("Users Page!");
+                done();
+            }, 30);
+        });
+
+        after(() => {
+            const rootNode = document.getElementById(CONTAINER_ID);
+            unmountComponentAtNode(rootNode);
+            rootNode.innerHTML = "";
         });
 
     });
