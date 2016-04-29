@@ -1,7 +1,7 @@
 /// <reference path="./interfaces/interfaces.d.ts" />
 
 import * as React from "react";
-import { render } from "react-dom";
+import { render as renderToDOM } from "react-dom";
 import { createHistory as createBrowserHistory } from "history";
 import { useRouterHistory } from "react-router";
 import { LOCATION_CHANGE, syncHistoryWithStore, routerMiddleware } from "react-router-redux";
@@ -44,6 +44,7 @@ function bootstrap(options: BoostrapOptions): BootstrapResult {
     let initialState = options.initialState || {};
     let immutableInitialState = Immutable.fromJS(initialState);
     let middlewares = options.middlewares || [];
+    const render = options.render || renderToDOM;
 
     // Define the root reducer
     reducers.routing = routerReducer;
@@ -56,14 +57,14 @@ function bootstrap(options: BoostrapOptions): BootstrapResult {
 
     // Create an enhanced history that syncs navigation events with the store
     const history = syncHistoryWithStore(routerHistory, store, {
-        selectLocationState: createSelector(getRouting, (routing) => routing.toJS())
+        selectLocationState: createSelector(getRouting, (routing: any) => routing.toJS())
     });
 
     // root component
     let root = getRoot(store, history, routes);
 
     // Render Root coponent
-    render(
+    const output = render(
         root,
         document.getElementById(container)
     );
@@ -71,6 +72,7 @@ function bootstrap(options: BoostrapOptions): BootstrapResult {
     return {
         store,
         history,
+        output,
         root
     };
 
