@@ -1,12 +1,12 @@
 # redux-bootstrap
 
-[![Join the chat at https://gitter.im/remojansen/redux-bootstrap](https://badges.gitter.im/remojansen/redux-bootstrap.svg)](https://gitter.im/remojansen/redux-bootstrap?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
-[![Build Status](https://travis-ci.org/remojansen/redux-bootstrap.svg?branch=master)](https://travis-ci.org/remojansen/redux-bootstrap)
-[![codecov.io](https://codecov.io/github/remojansen/redux-bootstrap/coverage.svg?branch=master)](https://codecov.io/github/remojansen/redux-bootstrap?branch=master)
+[![Join the chat at https://gitter.im/redux-bootstrap/redux-bootstrap](https://badges.gitter.im/redux-bootstrap/redux-bootstrap.svg)](https://gitter.im/redux-bootstrap/redux-bootstrap?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+[![Build Status](https://travis-ci.org/redux-bootstrap/redux-bootstrap.svg?branch=master)](https://travis-ci.org/redux-bootstrap/redux-bootstrap)
+[![codecov.io](https://codecov.io/github/redux-bootstrap/redux-bootstrap/coverage.svg?branch=master)](https://codecov.io/github/redux-bootstrap/redux-bootstrap?branch=master)
 [![npm version](https://badge.fury.io/js/redux-bootstrap.svg)](https://badge.fury.io/js/redux-bootstrap)
-[![Dependencies](https://david-dm.org/remojansen/redux-bootstrap.svg)](https://david-dm.org/remojansen/redux-bootstrap#info=dependencies)
-[![img](https://david-dm.org/remojansen/redux-bootstrap/dev-status.svg)](https://david-dm.org/remojansen/redux-bootstrap/#info=devDependencies)
-[![Known Vulnerabilities](https://snyk.io/test/github/remojansen/redux-bootstrap/badge.svg)](https://snyk.io/test/github/remojansen/redux-bootstrap)
+[![Dependencies](https://david-dm.org/redux-bootstrap/redux-bootstrap.svg)](https://david-dm.org/redux-bootstrap/redux-bootstrap#info=dependencies)
+[![img](https://david-dm.org/redux-bootstrap/redux-bootstrap/dev-status.svg)](https://david-dm.org/redux-bootstrap/redux-bootstrap/#info=devDependencies)
+[![Known Vulnerabilities](https://snyk.io/test/github/redux-bootstrap/redux-bootstrap/badge.svg)](https://snyk.io/test/github/redux-bootstrap/redux-bootstrap)
 
 
 [![NPM](https://nodei.co/npm/redux-bootstrap.png?downloads=true&downloadRank=true)](https://nodei.co/npm/redux-bootstrap/)
@@ -98,7 +98,7 @@ bootstrap({
 That's it, Routing, Immutable, DevTools are ready and you can start working on your app! 
 
 # Where Can I Find An Example?
-If you are looking for a sample application, you can refer to the [redux-bootstrap-example](https://github.com/remojansen/redux-bootstrap-example) repository.
+If you are looking for a sample application, you can refer to the [redux-bootstrap-example](https://github.com/redux-bootstrap/redux-bootstrap-example) repository.
 
 # Using combineReducers
 Redux bootstrap uses Immutable.js. The `combineReducers` function from redux don't work with immutable state but you can use the `redux-immutable` `combineReducers` function to solve this problem:
