@@ -53,11 +53,12 @@ class Home extends React.Component<any, any> {
 // ******************************************************************************
 // * CONSTANTS
 // ******************************************************************************
-const ACTION_TYPES = {
+export const ACTION_TYPES = {
     ADD_REPO_BEGIN: "ADD_REPO_BEGIN",
     ADD_REPO_SUCCESS: "ADD_REPO_SUCCESS",
     ADD_USER_BEGIN: "ADD_USER_BEGIN",
-    ADD_USER_SUCCESS: "ADD_USER_SUCCESS"
+    ADD_USER_SUCCESS: "ADD_USER_SUCCESS",
+    BUMP_COUNTER: "BUMP_COUNTER"
 };
 
 // ******************************************************************************
@@ -167,6 +168,15 @@ function getRoutes() {
 // * REDUCERS
 // ******************************************************************************
 function getReducers(): ReducersOption {
+
+    const counterReducer: Redux.Reducer = (previousState: any = 0, action: any) => {
+        switch (action.type) {
+            case ACTION_TYPES.BUMP_COUNTER:
+                return previousState + 1;
+            default:
+                return previousState;
+        }
+    };
 
     const defaultUsersState = Immutable.fromJS({
         loading: false,

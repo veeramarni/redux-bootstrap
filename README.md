@@ -61,7 +61,8 @@ The preceding command will install `redux-bootstrap` and the following dependenc
     "redux-devtools": "^3.2.0",
     "redux-devtools-dock-monitor": "^1.1.1",
     "redux-devtools-log-monitor": "^1.0.10",
-    "redux-immutable": "^3.0.6"
+    "redux-immutable": "^3.0.6",
+    "reselect": "^2.5.1"
 }
 ```
  
