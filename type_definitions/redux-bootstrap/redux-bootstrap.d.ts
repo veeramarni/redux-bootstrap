@@ -14,6 +14,7 @@ declare module "redux-bootstrap" {
         createHistory?: HistoryModule.CreateHistory<HistoryModule.History>;
         historyOptions?: HistoryModule.HistoryOptions;
         middlewares?: Redux.Middleware[];
+        render?: Function;
         initialState?: any;
         container?: string;
     }
@@ -21,6 +22,7 @@ declare module "redux-bootstrap" {
     interface BootstrapResult {
         store: Redux.Store;
         history: ReactRouterRedux.ReactRouterReduxHistory;
+        output: any;
         root: JSX.Element;
     }
 

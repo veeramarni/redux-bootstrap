@@ -1,7 +1,8 @@
 /// <reference path="../src/interfaces/interfaces.d.ts" />
 
-import { createHashHistory } from "history";
-import { unmountComponentAtNode } from 'react-dom';
+import { createHashHistory, createMemoryHistory } from "history";
+import { unmountComponentAtNode } from "react-dom";
+import { renderToStaticMarkup } from "react-dom/server";
 import thunk from "redux-thunk";
 // import * as createLogger from "redux-logger";
 import { push } from "react-router-redux";
@@ -160,8 +161,8 @@ describe("redux-bootstrap", () => {
         before(() => {
             result = bootstrap({
                 container: "root",
-                initialState: {},
                 createHistory: createHashHistory,
+                initialState: {},
                 middlewares: [thunk],
                 reducers: getReducers(),
                 routes: getRoutes()
@@ -250,6 +251,53 @@ describe("redux-bootstrap", () => {
         after(() => {
             const rootNode = document.getElementById(CONTAINER_ID);
             unmountComponentAtNode(rootNode);
+        });
+
+    });
+
+    describe("Should bootstrap with memoryHistory and renderToStaticMarkup.", () => {
+
+        let result: BootstrapResult;
+        before(() => {
+            result = bootstrap({
+                container: "root",
+                createHistory: createMemoryHistory,
+                initialState: {},
+                middlewares: [thunk],
+                reducers: getReducers(),
+                render: renderToStaticMarkup,
+                routes: getRoutes()
+            });
+            result.output = renderToStaticMarkup(result.root);
+        });
+
+        it("Should be able to render the home page to string.", () => {
+            expect(result.output).to.be.string;
+            expect(result.output).to.include('<div id="home_page_title">Home Page!</div>');
+        });
+
+    });
+
+    describe("Should bootstrap with memoryHistory and renderToStaticMarkup, with navigation.", () => {
+
+        let result: BootstrapResult;
+        before(() => {
+            result = bootstrap({
+                container: "root",
+                createHistory: createMemoryHistory,
+                initialState: {},
+                middlewares: [thunk],
+                reducers: getReducers(),
+                render: () => {}, // skip first render, we navigate first
+                routes: getRoutes()
+            });
+            result.history.push("/users");
+            result.output = renderToStaticMarkup(result.root);
+        });
+
+        it("Should be able to render the users page to string.", () => {
+            expect(result.output).to.be.string;
+            expect(result.output).to.include('<div id="users_page_title">Users Page!</div>');
         });
 
     });

@@ -81,8 +81,12 @@ import reposReducer from "./reducers/reposReducer";
 
 bootstrap({
     container: "root",                    // optional
+    createHistory: createBrowserHistory,  // optional
+    historyOptions: {},                   // optional
     initialState: {},                     // optional
-    middlewares: [thunk, createLogger()], // optional
+    middlewares: [thunk, createLogger()], // optional    
+    render: ReactDOM.render,              // optional
+    
     reducers: {
         usersReducer,
         reposReducer,
@@ -124,6 +128,7 @@ The `result` object returned by the bootstrap function provides access to the st
 interface BootstrapResult {
     store: Redux.Store,
     history: ReactRouterRedux.ReactRouterReduxHistory,
+    output: any, // value returned by render()
     root: JSX.Element
 }
 ```

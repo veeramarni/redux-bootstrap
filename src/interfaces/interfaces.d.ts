@@ -7,6 +7,7 @@ interface BoostrapOptions {
     createHistory?: HistoryModule.CreateHistory<HistoryModule.History>;
     historyOptions?: HistoryModule.HistoryOptions;
     middlewares?: Redux.Middleware[];
+    render?: Function;
     initialState?: any;
     container?: string;
 }
@@ -14,6 +15,7 @@ interface BoostrapOptions {
 interface BootstrapResult {
     store: Redux.Store;
     history: ReactRouterRedux.ReactRouterReduxHistory;
+    output: any;
     root: JSX.Element;
 }
 
