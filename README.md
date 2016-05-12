@@ -68,6 +68,12 @@ The preceding command will install `redux-bootstrap` and the following dependenc
  
 Then use the bootstrap function in your application's entry point.
 
+> Note: The following example uses two pieces of redux middleware: `redux-thunk` and `redux-logger`. These packages are optional but if you are going to use them you will need to install them first:
+
+```ts
+$ npm install redux-thunk redux-logger --save
+```
+
 All you need to do is import you routes file, your reducers and any additional middleware 
 and pass them to the bootstrap function as configuration:
 
