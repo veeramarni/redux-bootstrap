@@ -8,7 +8,7 @@
 
 declare module "redux-bootstrap" {
 
-    interface BoostrapOptions {
+    export interface BoostrapOptions {
         routes: JSX.Element;
         reducers: ReducersOption;
         createHistory?: HistoryModule.CreateHistory<HistoryModule.History>;
@@ -19,7 +19,7 @@ declare module "redux-bootstrap" {
         container?: string;
     }
 
-    interface BootstrapResult {
+    export interface BootstrapResult {
         store: Redux.Store;
         history: ReactRouterRedux.ReactRouterReduxHistory;
         output: any;
@@ -30,5 +30,5 @@ declare module "redux-bootstrap" {
         [index: string]: Redux.Reducer;
     }
 
-    export function bootstrap(options: BoostrapOptions): BootstrapResult;
+    export default function bootstrap(options: BoostrapOptions): BootstrapResult;
 }
