@@ -44,7 +44,7 @@
     "gulp-codecov": "^2.0.1",
     "gulp-tslint": "^5.0.0",
     "gulp-typescript": "^2.13.0",
-    "jquery": "^2.2.3",
+    "jquery": "^3.0.0",
     "karma": "^0.13.22",
     "karma-chai": "^0.1.0",
     "karma-commonjs": "1.0.0",
