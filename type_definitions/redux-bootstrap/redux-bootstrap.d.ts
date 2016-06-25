@@ -8,7 +8,7 @@
 
 declare module "redux-bootstrap" {
 
-    namespace interfaces {
+    export namespace interfaces {
 
         export interface BoostrapOptions {
             routes: JSX.Element;
