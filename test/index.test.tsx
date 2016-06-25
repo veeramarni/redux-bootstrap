@@ -1,15 +1,11 @@
-/// <reference path="../src/interfaces/interfaces.d.ts" />
-
 import { createHashHistory, createMemoryHistory } from "history";
 import { unmountComponentAtNode } from "react-dom";
 import { renderToStaticMarkup } from "react-dom/server";
 import thunk from "redux-thunk";
-// import * as createLogger from "redux-logger";
 import { push } from "react-router-redux";
 import * as $ from "jquery";
 import { expect } from "chai";
-
-import bootstrap from "../src/index";
+import { bootstrap, interfaces } from "../src/index";
 import { ACTION_TYPES, getRoutes, getReducers } from "./stubs";
 
 const CONTAINER_ID = "root";
@@ -128,7 +124,7 @@ describe("redux-bootstrap", () => {
 
     describe("Should be able to bootstrap again.", () => {
 
-        let result: BootstrapResult;
+        let result: interfaces.BootstrapResult;
         before(() => {
             result = bootstrap({
                 container: "root",
@@ -157,7 +153,7 @@ describe("redux-bootstrap", () => {
 
     describe("Should be able to bootstrap with hashHistory.", () => {
 
-        let result: BootstrapResult;
+        let result: interfaces.BootstrapResult;
         before(() => {
             result = bootstrap({
                 container: "root",
@@ -257,7 +253,7 @@ describe("redux-bootstrap", () => {
 
     describe("Should bootstrap with memoryHistory and renderToStaticMarkup.", () => {
 
-        let result: BootstrapResult;
+        let result: interfaces.BootstrapResult;
         before(() => {
             result = bootstrap({
                 container: "root",
@@ -280,7 +276,7 @@ describe("redux-bootstrap", () => {
 
     describe("Should bootstrap with memoryHistory and renderToStaticMarkup, with navigation.", () => {
 
-        let result: BootstrapResult;
+        let result: interfaces.BootstrapResult;
         before(() => {
             result = bootstrap({
                 container: "root",
@@ -288,7 +284,7 @@ describe("redux-bootstrap", () => {
                 initialState: {},
                 middlewares: [thunk],
                 reducers: getReducers(),
-                render: () => {}, // skip first render, we navigate first
+                render: () => { /*  skip first render, we navigate first */ },
                 routes: getRoutes()
             });
             result.history.push("/users");
