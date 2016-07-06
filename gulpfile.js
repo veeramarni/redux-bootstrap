@@ -7,7 +7,6 @@
 var gulp        = require("gulp"),
     tslint      = require("gulp-tslint"),
     tsc         = require("gulp-typescript"),
-    codecov     = require("gulp-codecov"),
     runSequence = require("run-sequence"),
     browserify  = require("browserify"),
     source      = require("vinyl-source-stream"),
@@ -137,12 +136,6 @@ gulp.task("karma", function (done) {
     }).start();
 });
 
-gulp.task("cover", function() {
-  if (!process.env.CI) return;
-  return gulp.src("coverage/**/lcov.info")
-      .pipe(codecov());
-});
-
 //******************************************************************************
 //* TASK GROUPS
 //******************************************************************************
@@ -160,7 +153,7 @@ gulp.task("build", function(cb) {
 });
 
 gulp.task("test", function(cb) {
-  runSequence("karma", "cover", cb);
+  runSequence("karma", cb);
 });
 
 gulp.task("default", function (cb) {
