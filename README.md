@@ -2,7 +2,7 @@
 
 [![Join the chat at https://gitter.im/redux-bootstrap/redux-bootstrap](https://badges.gitter.im/redux-bootstrap/redux-bootstrap.svg)](https://gitter.im/redux-bootstrap/redux-bootstrap?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 [![Build Status](https://travis-ci.org/redux-bootstrap/redux-bootstrap.svg?branch=master)](https://travis-ci.org/redux-bootstrap/redux-bootstrap)
-[![codecov.io](https://codecov.io/github/redux-bootstrap/redux-bootstrap/coverage.svg?branch=master)](https://codecov.io/github/redux-bootstrap/redux-bootstrap?branch=master)
+[![Test Coverage](https://codeclimate.com/github/redux-bootstrap/redux-bootstrap/badges/coverage.svg)](https://codeclimate.com/github/redux-bootstrap/redux-bootstrap/coverage)
 [![NPM version](https://badge.fury.io/js/redux-bootstrap.svg)](https://badge.fury.io/js/redux-bootstrap)
 [![Dependencies](https://david-dm.org/redux-bootstrap/redux-bootstrap.svg)](https://david-dm.org/redux-bootstrap/redux-bootstrap#info=dependencies)
 [![img](https://david-dm.org/redux-bootstrap/redux-bootstrap/dev-status.svg)](https://david-dm.org/redux-bootstrap/redux-bootstrap/#info=devDependencies)
