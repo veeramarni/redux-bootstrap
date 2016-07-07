@@ -66,14 +66,14 @@ export const ACTION_TYPES = {
 let addUserBegin = makeActionCreator(ACTION_TYPES.ADD_USER_BEGIN);
 let addUserSuccess = makeActionCreator(ACTION_TYPES.ADD_USER_SUCCESS);
 let addUserAsync =  () => {
-    return (dispatch: Redux.Dispatch) => {
+    return (dispatch: Redux.Dispatch<any>) => {
         dispatch(addUserBegin());
         // fake delay
         setTimeout(() => { dispatch(addUserSuccess()); }, 20);
     };
 };
 
-let userActions = { addUserAsync, addUserBegin, addUserSuccess };
+let userActions: any = { addUserAsync, addUserBegin, addUserSuccess };
 
 // ******************************************************************************
 // * USER PAGE COMPONENT
@@ -82,7 +82,7 @@ function mapStateToPropsUserPage(state: any) {
     return { users: state.get("users") };
 }
 
-function mapDispatchToPropsUserPage(dispatch: Redux.Dispatch) {
+function mapDispatchToPropsUserPage(dispatch: Redux.Dispatch<any>) {
     return { actions : bindActionCreators(userActions, dispatch) };
 }
 
@@ -111,14 +111,14 @@ class UsersPage extends React.Component<any, any> {
 let addRepoBegin = makeActionCreator(ACTION_TYPES.ADD_REPO_BEGIN);
 let addRepoSuccess = makeActionCreator(ACTION_TYPES.ADD_REPO_SUCCESS);
 let addRepoAsync =  () => {
-    return (dispatch: Redux.Dispatch) => {
+    return (dispatch: Redux.Dispatch<any>) => {
         dispatch(addRepoBegin());
         // fake delay
         setTimeout(() => { dispatch(addRepoSuccess()); }, 20);
     };
 };
 
-let repoActions = { addRepoAsync, addRepoBegin, addRepoSuccess };
+let repoActions: any = { addRepoAsync, addRepoBegin, addRepoSuccess };
 
 // ******************************************************************************
 // * REPOS PAGE COMPONENT
@@ -127,7 +127,7 @@ function mapStateToPropsReposPage(state: any) {
     return { repos: state.get("repos") };
 }
 
-function mapDispatchToPropsReposPage(dispatch: Redux.Dispatch) {
+function mapDispatchToPropsReposPage(dispatch: Redux.Dispatch<any>) {
     return { actions : bindActionCreators(repoActions, dispatch) };
 }
 
@@ -168,7 +168,7 @@ function getRoutes() {
 // ******************************************************************************
 function getReducers(): interfaces.ReducersOption {
 
-    const counterReducer: Redux.Reducer = (previousState: any = 0, action: any) => {
+    const counterReducer: Redux.Reducer<any> = (previousState: any = 0, action: any) => {
         switch (action.type) {
             case ACTION_TYPES.BUMP_COUNTER:
                 return previousState + 1;
@@ -182,7 +182,7 @@ function getReducers(): interfaces.ReducersOption {
         usersCount: 0
     });
 
-    const usersReducer: Redux.Reducer = (previousState: any = defaultUsersState, action: any) => {
+    const usersReducer: Redux.Reducer<any> = (previousState: any = defaultUsersState, action: any) => {
         switch (action.type) {
             case ACTION_TYPES.ADD_USER_BEGIN:
                 return previousState.set("loading", true);
@@ -201,7 +201,7 @@ function getReducers(): interfaces.ReducersOption {
         reposCount: 0
     });
 
-    const reposReducer: Redux.Reducer = (previousState: any = defaultReposState, action: any) => {
+    const reposReducer: Redux.Reducer<any> = (previousState: any = defaultReposState, action: any) => {
         switch (action.type) {
             case ACTION_TYPES.ADD_REPO_BEGIN:
                 return previousState.set("loading", true);

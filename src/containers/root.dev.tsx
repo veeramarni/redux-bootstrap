@@ -4,7 +4,7 @@ import DevTools from "./dev_tools";
 import { Router } from "react-router";
 
 export default function getRoot(
-  store: Redux.Store,
+  store: Redux.Store<any>,
   history: ReactRouterRedux.ReactRouterReduxHistory,
   routes: JSX.Element
 ) {

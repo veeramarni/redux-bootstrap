@@ -10,6 +10,8 @@ module.exports = function (config) {
     ],
     reporters: ["mocha", "coverage"],
     coverageReporter: {
+      dir : "coverage/",
+      type : "lcovonly",
       check: {
         global: {
           statements: 0,

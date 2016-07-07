@@ -3,9 +3,9 @@ import DevTools from "../containers/dev_tools";
 
 export default function configureStore(
     middlewares: Redux.Middleware[],
-    rootReducer: Redux.Reducer,
+    rootReducer: Redux.Reducer<any>,
     initialState: any
-): Redux.Store {
+): Redux.Store<any> {
 
     const store = createStore(
         rootReducer,

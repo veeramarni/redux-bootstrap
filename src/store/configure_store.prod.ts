@@ -2,9 +2,9 @@ import { createStore, applyMiddleware } from "redux";
 
 function configureStore(
   middlewares: Redux.Middleware[],
-  rootReducer: Redux.Reducer,
+  rootReducer: Redux.Reducer<any>,
   initialState: any
-): Redux.Store {
+): Redux.Store<any> {
 
   return createStore(
     rootReducer,

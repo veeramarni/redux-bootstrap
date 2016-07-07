@@ -194,7 +194,7 @@ describe("redux-bootstrap", () => {
         const BUMP_COUNTER = "BUMP_COUNTER";
 
         let history: ReactRouterRedux.ReactRouterReduxHistory;
-        let store: Redux.Store;
+        let store: Redux.Store<any>;
 
         before(() => {
             const result = bootstrap({

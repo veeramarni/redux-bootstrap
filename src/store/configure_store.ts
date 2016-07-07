@@ -1,4 +1,4 @@
-let configureStore: (middlewares: Redux.Middleware[], rootReducer: Object, initialState: any) => Redux.Store = null;
+let configureStore: (middlewares: Redux.Middleware[], rootReducer: Object, initialState: any) => Redux.Store<any> = null;
 import configureStoreProd from "./configure_store.prod";
 import configureStoreDev from "./configure_store.dev";
 

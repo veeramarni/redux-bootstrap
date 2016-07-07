@@ -12,18 +12,18 @@ namespace interfaces {
     }
 
     export interface BootstrapResult {
-        store: Redux.Store;
+        store: Redux.Store<any>;
         history: ReactRouterRedux.ReactRouterReduxHistory;
         output: any;
         root: JSX.Element;
     }
 
     export interface ReducersOption {
-        [index: string]: Redux.Reducer;
+        [index: string]: Redux.Reducer<any>;
     }
 
     export interface RootComponentProps {
-        store: Redux.Store;
+        store: Redux.Store<any>;
         history: ReactRouterRedux.ReactRouterReduxHistory;
         routes: JSX.Element;
     }
