@@ -52,16 +52,27 @@ The preceding command will install `redux-bootstrap` and the following dependenc
 
 ```json
 "dependencies": {
+    "@types/history": "^2.0.37",
+    "@types/react": "^0.14.37",
+    "@types/react-dom": "^0.14.17",
+    "@types/react-redux": "^4.4.32",
+    "@types/react-router": "^2.0.36",
+    "@types/react-router-redux": "^4.0.33",
+    "@types/redux-devtools": "^3.0.33",
+    "@types/redux-devtools-dock-monitor": "^1.1.29",
+    "@types/redux-devtools-log-monitor": "^1.0.29",
+    "@types/redux-immutable": "^3.0.31",
+    "history": "^3.2.1",
     "immutable": "^3.7.6",
-    "react": "^15.0.1",
-    "react-dom": "^15.0.1",
+    "react": "^15.0.2",
+    "react-dom": "^15.1.0",
     "react-redux": "^4.4.4",
-    "react-router": "^2.2.4",
+    "react-router": "^3.0.0",
     "react-router-redux": "^4.0.2",
-    "redux": "^3.4.0",
+    "redux": "^3.5.2",
     "redux-devtools": "^3.2.0",
     "redux-devtools-dock-monitor": "^1.1.1",
-    "redux-devtools-log-monitor": "^1.0.10",
+    "redux-devtools-log-monitor": "^1.1.1",
     "redux-immutable": "^3.0.6",
     "reselect": "^2.5.1"
 }
