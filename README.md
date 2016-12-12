@@ -45,23 +45,13 @@ This idea is based on the `bootstrap` functions built into other modern JS frame
 Install it via NPM:
 
 ```
-$ npm install --save redux-bootstrap
+$ npm install --save redux-bootstrap @types/history @types/react @types/react-dom @types/react-redux @types/react-router @types/react-router-redux @types/redux-devtools @types/redux-devtools-dock-monitor @types/redux-devtools-log-monitor @types/redux-immutable
 ```
 
 The preceding command will install `redux-bootstrap` and the following dependencies:
 
 ```json
 "dependencies": {
-    "@types/history": "^2.0.37",
-    "@types/react": "^0.14.37",
-    "@types/react-dom": "^0.14.17",
-    "@types/react-redux": "^4.4.32",
-    "@types/react-router": "^2.0.36",
-    "@types/react-router-redux": "^4.0.33",
-    "@types/redux-devtools": "^3.0.33",
-    "@types/redux-devtools-dock-monitor": "^1.1.29",
-    "@types/redux-devtools-log-monitor": "^1.0.29",
-    "@types/redux-immutable": "^3.0.31",
     "history": "^3.2.1",
     "immutable": "^3.7.6",
     "react": "^15.0.2",
