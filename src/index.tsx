@@ -66,7 +66,7 @@ function bootstrap(options: interfaces.BoostrapOptions): interfaces.BootstrapRes
 
     let renderArgs: any[] = [root];
 
-    if (document !== undefined) {
+    if (typeof document !== "undefined") {
         renderArgs.push(document.getElementById(container));
     }
 
