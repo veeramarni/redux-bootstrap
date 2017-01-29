@@ -1,6 +1,6 @@
 import { render as renderToDOM } from "react-dom";
-import { createHistory as createBrowserHistory } from "history";
 import { useRouterHistory } from "react-router";
+import createBrowserHistory from "history/lib/createBrowserHistory";
 import { LOCATION_CHANGE, syncHistoryWithStore, routerMiddleware } from "react-router-redux";
 import { combineReducers } from "redux-immutable";
 import { createSelector } from "reselect";
@@ -60,7 +60,7 @@ function bootstrap(options: interfaces.BoostrapOptions): interfaces.BootstrapRes
     });
 
     // root component
-    let root = getRoot(store, history, routes);
+    let root = getRoot(store, history, routes, options.routerProps);
 
     // Render Root coponent
 
