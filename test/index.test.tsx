@@ -8,7 +8,9 @@ import { expect } from "chai";
 import { bootstrap, interfaces } from "../src/index";
 import { ACTION_TYPES, getRoutes, getReducers } from "./stubs";
 import * as Redux from "redux";
-import * as ReactRouterRedux from "react-router-redux";
+// import * as ReactRouterRedux from "react-router-redux";
+import * as History from "history";
+
 
 const CONTAINER_ID = "root";
 
@@ -192,7 +194,7 @@ describe("redux-bootstrap", () => {
 
     describe("Should bootstrap with efficient sync'ed history", () => {
 
-        let history: ReactRouterRedux.ReactRouterReduxHistory;
+        let history: History.History;
         let store: Redux.Store<any>;
 
         before(() => {
