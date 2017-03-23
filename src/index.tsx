@@ -9,6 +9,8 @@ import getRoot from "./containers/root";
 import configureStore from "./store/configure_store";
 import interfaces from "./interfaces/interfaces";
 import * as Redux from "redux";
+import * as History from "history";
+
 
 const initialRouterReducerState = Immutable.fromJS({
     locationBeforeTransitions: null
@@ -50,7 +52,7 @@ function bootstrap(options: interfaces.BoostrapOptions): interfaces.BootstrapRes
     let rootReducer = combineReducers(reducers);
 
     // Configure store
-    const routerHistory = useRouterHistory(createHistory)(historyOptions);
+    const routerHistory = useRouterHistory<History.HistoryOptions, History.History>(createHistory)(historyOptions);
     let routerMddlwr: Redux.Middleware = routerMiddleware(routerHistory);
 
     // More info at https://github.com/zalmoxisus/redux-devtools-extension/blob/master/docs/API/Arguments.md#windowdevtoolsextensionconfig
