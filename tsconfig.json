@@ -1,13 +1,21 @@
 {
     "compilerOptions": {
         "target": "es5",
-        "lib": ["es6", "dom"],
-        "types": ["mocha", "node"],
+        "lib": [
+            "es6",
+            "dom"
+        ],
+        "types": [
+            "mocha",
+            "node"
+        ],
         "module": "commonjs",
         "moduleResolution": "node",
         "jsx": "react",
         "experimentalDecorators": true,
         "emitDecoratorMetadata": true,
+        "declaration": true,
+        "declarationDir": "../dts",
         "noImplicitAny": true,
         "removeComments": true,
         "preserveConstEnums": true,
@@ -16,5 +24,12 @@
         "noUnusedParameters": false,
         "noUnusedLocals": true,
         "strictNullChecks": false
-    }
+    },
+    "exclude": [
+        "node_modules",
+        "dist",
+        "lib",
+        "test",
+        "webpack.config.ts"
+    ]
 }
