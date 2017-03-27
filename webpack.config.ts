@@ -12,7 +12,7 @@ var webpack_opts = {
         path: path.resolve(__dirname, 'lib'),
         publicPath: '/lib/',
         filename: 'index.js',
-        library: 'redux-bootstrap',
+        library: '@vscode/redux-bootstrap',
         libraryTarget: 'umd',
     },
     resolve: {
@@ -52,8 +52,7 @@ var webpack_opts = {
     // this is important because it allows us to avoid bundling all of our
     // dependencies, which allows browsers to cache those libraries between builds.
     externals: [nodeExternals(), {
-        'react': 'React',
-        'react-dom': 'ReactDOM'
+        'react': 'umd react',
     }]
 };
 module.exports = webpack_opts;

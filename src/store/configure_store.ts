@@ -1,6 +1,6 @@
-import { createStore, applyMiddleware, compose } from "redux";
-import * as Redux from "redux";
-import interfaces from "../interfaces/interfaces";
+import { createStore, applyMiddleware, compose } from 'redux';
+import * as Redux from 'redux';
+import interfaces from '../interfaces/interfaces';
 
 function configureStore(
     middlewares: Redux.Middleware[],

@@ -1,5 +1,5 @@
 {
-  "name": "redux-bootstrap",
+  "name": "@vscode/redux-bootstrap",
   "version": "1.1.0",
   "description": "Bootstrapping for Redux applications",
   "main": "lib/index.js",
@@ -7,8 +7,9 @@
   "typings": "./dts/index.d.ts",
   "scripts": {
     "test": "gulp",
-    "publish-please": "publish-please",
-    "prepublish": "publish-please guard"
+    "prebuild": "rimraf lib/* && rimraf dts/*",
+    "build": "webpack",
+    "build:watch": "webpack --watch"
   },
   "repository": {
     "type": "git",
@@ -26,16 +27,19 @@
   },
   "homepage": "https://github.com/remojansen/redux-bootstrap#readme",
   "dependencies": {
+    "@vscode/redux-core": "^0.0.1",
     "history": "^3.2.1",
-    "immutable": "^3.7.6",
-    "react": "^15.0.2",
-    "react-dom": "^15.1.0",
-    "react-redux": "^5.0.2",
-    "react-router": "^3.0.0",
+    "lodash": "^4.17.4",
+    "redux-logger": "^3.0.0",
+    "reselect": "^2.5.1"
+  },
+  "peerDependencies": {
+    "react": "^15.4.2",
+    "react-dom": ">=15.0.0",
     "react-router-redux": "^4.0.8",
     "redux": "^3.5.2",
-    "redux-immutable": "^3.0.6",
-    "reselect": "^2.5.1"
+    "react-redux": "^5.0.2",
+    "react-router": "^3.0.0"
   },
   "devDependencies": {
     "@types/chai": "^3.4.34",
@@ -51,6 +55,8 @@
     "@types/react-router-redux": "^4.0.43",
     "@types/redux-immutable": "^3.0.31",
     "@types/redux-logger": "^2.6.32",
+    "apollo-client": "^1.0.0-rc.6",
+    "awesome-typescript-loader": "^3.1.2",
     "browserify": "^14.0.0",
     "chai": "^3.5.0",
     "envify": "^4.0.0",
@@ -59,6 +65,7 @@
     "gulp-tslint": "^7.0.1",
     "gulp-typescript": "^3.1.1",
     "html5-history-api": "^4.2.7",
+    "invariant": "^2.2.2",
     "istanbul": "^0.4.5",
     "jquery": "^3.0.0",
     "karma": "^1.0.0",
@@ -69,18 +76,37 @@
     "karma-mocha-reporter": "^2.0.5",
     "karma-phantomjs-launcher": "^1.0.0",
     "karma-remap-istanbul": "^0.4.0",
-    "source-map-loader": "^0.2.0",
-    "sourcemap-istanbul-instrumenter-loader": "^0.2.0",
     "mocha": "^3.0.1",
     "phantomjs-prebuilt": "^2.1.11",
     "publish-please": "^2.1.4",
+    "react": "^15.4.2",
+    "react-apollo": "^1.0.0-rc.3",
+    "react-dom": "^15.4.2",
+    "react-redux": "^5.0.3",
+    "react-router": "^3.0.2",
+    "react-router-redux": "^4.0.8",
+    "redux": "^3.6.0",
+    "redux-immutable": "^4.0.0",
     "redux-thunk": "^2.0.1",
+    "rimraf": "^2.6.1",
     "run-sequence": "^1.2.1",
+    "source-map-loader": "^0.2.0",
+    "sourcemap-istanbul-instrumenter-loader": "^0.2.0",
+    "ts-loader": "^2.0.3",
+    "ts-node": "^3.0.2",
     "tsify": "^2.0.8",
     "tslint": "^4.0.2",
-    "typescript": "^2.1.1",
+    "tslint-loader": "^3.4.3",
+    "tslint-react": "^2.5.0",
+    "typescript": "^2.2.1",
     "vinyl-buffer": "^1.0.0",
-    "vinyl-source-stream": "^1.1.0"
+    "vinyl-source-stream": "^1.1.0",
+    "warning": "^3.0.0",
+    "webpack": "^2.3.1",
+    "webpack-dev-middleware": "^1.10.1",
+    "webpack-hot-middleware": "^2.17.1",
+    "webpack-node-externals": "^1.5.4",
+    "webpack-visualizer-plugin": "^0.1.11"
   },
   "browserify": {
     "transform": [

@@ -1,15 +1,15 @@
-import { createHashHistory, createMemoryHistory } from "history";
-import { unmountComponentAtNode } from "react-dom";
-import { renderToStaticMarkup } from "react-dom/server";
-import thunk from "redux-thunk";
-import { push } from "react-router-redux";
-import * as $ from "jquery";
-import { expect } from "chai";
-import { bootstrap, interfaces } from "../src/index";
-import { ACTION_TYPES, getRoutes, getReducers } from "./stubs";
-import * as Redux from "redux";
+import { createHashHistory, createMemoryHistory } from 'history';
+import { unmountComponentAtNode } from 'react-dom';
+import { renderToStaticMarkup } from 'react-dom/server';
+import thunk from 'redux-thunk';
+import { push } from 'react-router-redux';
+import * as $ from 'jquery';
+import { expect } from 'chai';
+import { bootstrap, interfaces } from '../src/index'
+import { ACTION_TYPES, getRoutes, getReducers } from './stubs';
+import * as Redux from 'redux';
 // import * as ReactRouterRedux from "react-router-redux";
-import * as History from "history";
+import * as History from 'history';
 
 
 const CONTAINER_ID = "root";
@@ -205,7 +205,7 @@ describe("redux-bootstrap", () => {
                 reducers: getReducers(),
                 routes: getRoutes()
             });
-            history = result.history;
+            // history = result.history;
             store = result.store;
         });
 
@@ -288,7 +288,7 @@ describe("redux-bootstrap", () => {
                 render: () => { /*  skip first render, we navigate first */ },
                 routes: getRoutes()
             });
-            result.history.push("/users");
+            // result.history.push("/users");
             result.output = renderToStaticMarkup(result.root);
         });
 
